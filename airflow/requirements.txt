@@ -1,0 +1,4 @@
+requests
+kafka-python
+xmltodict
+apache-airflow-providers-docker

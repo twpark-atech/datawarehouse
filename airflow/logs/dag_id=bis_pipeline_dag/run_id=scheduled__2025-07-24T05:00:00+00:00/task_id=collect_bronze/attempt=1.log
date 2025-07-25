@@ -1,0 +1,84 @@
+[2025-07-24T06:00:01.413+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: bis_pipeline_dag.collect_bronze scheduled__2025-07-24T05:00:00+00:00 [queued]>
+[2025-07-24T06:00:01.417+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: bis_pipeline_dag.collect_bronze scheduled__2025-07-24T05:00:00+00:00 [queued]>
+[2025-07-24T06:00:01.417+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 2
+[2025-07-24T06:00:01.456+0000] {taskinstance.py:2191} INFO - Executing <Task(BashOperator): collect_bronze> on 2025-07-24 05:00:00+00:00
+[2025-07-24T06:00:01.459+0000] {standard_task_runner.py:60} INFO - Started process 212 to run task
+[2025-07-24T06:00:01.462+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'bis_pipeline_dag', 'collect_bronze', 'scheduled__2025-07-24T05:00:00+00:00', '--job-id', '4', '--raw', '--subdir', 'DAGS_FOLDER/bis_pipeline_dag.py', '--cfg-path', '/tmp/tmpud2kocsz']
+[2025-07-24T06:00:01.463+0000] {standard_task_runner.py:88} INFO - Job 4: Subtask collect_bronze
+[2025-07-24T06:00:01.528+0000] {task_command.py:423} INFO - Running <TaskInstance: bis_pipeline_dag.collect_bronze scheduled__2025-07-24T05:00:00+00:00 [running]> on host e9ea48abe9b7
+[2025-07-24T06:00:01.640+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='admin' AIRFLOW_CTX_DAG_ID='bis_pipeline_dag' AIRFLOW_CTX_TASK_ID='collect_bronze' AIRFLOW_CTX_EXECUTION_DATE='2025-07-24T05:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-07-24T05:00:00+00:00'
+[2025-07-24T06:00:01.641+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-07-24T06:00:01.642+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'python /producer/api_producer.py']
+[2025-07-24T06:00:01.648+0000] {subprocess.py:86} INFO - Output:
+[2025-07-24T06:00:01.722+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2025-07-24T06:00:01.722+0000] {subprocess.py:93} INFO -   File "/producer/api_producer.py", line 3, in <module>
+[2025-07-24T06:00:01.722+0000] {subprocess.py:93} INFO -     from kafka import KafkaProducer
+[2025-07-24T06:00:01.722+0000] {subprocess.py:93} INFO - ModuleNotFoundError: No module named 'kafka'
+[2025-07-24T06:00:01.731+0000] {subprocess.py:97} INFO - Command exited with return code 1
+[2025-07-24T06:00:01.740+0000] {taskinstance.py:2698} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/operators/bash.py", line 212, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2025-07-24T06:00:01.742+0000] {taskinstance.py:1138} INFO - Marking task as UP_FOR_RETRY. dag_id=bis_pipeline_dag, task_id=collect_bronze, execution_date=20250724T050000, start_date=20250724T060001, end_date=20250724T060001
+[2025-07-24T06:00:01.819+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 4 for task collect_bronze (Bash command failed. The command returned a non-zero exit code 1.; 212)
+[2025-07-24T06:00:01.851+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2025-07-24T06:00:01.866+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-07-24T06:08:44.409+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: bis_pipeline_dag.collect_bronze scheduled__2025-07-24T05:00:00+00:00 [queued]>
+[2025-07-24T06:08:44.414+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: bis_pipeline_dag.collect_bronze scheduled__2025-07-24T05:00:00+00:00 [queued]>
+[2025-07-24T06:08:44.414+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 2
+[2025-07-24T06:08:44.455+0000] {taskinstance.py:2191} INFO - Executing <Task(BashOperator): collect_bronze> on 2025-07-24 05:00:00+00:00
+[2025-07-24T06:08:44.458+0000] {standard_task_runner.py:60} INFO - Started process 186 to run task
+[2025-07-24T06:08:44.461+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'bis_pipeline_dag', 'collect_bronze', 'scheduled__2025-07-24T05:00:00+00:00', '--job-id', '2', '--raw', '--subdir', 'DAGS_FOLDER/bis_pipeline_dag.py', '--cfg-path', '/tmp/tmpkahau0by']
+[2025-07-24T06:08:44.463+0000] {standard_task_runner.py:88} INFO - Job 2: Subtask collect_bronze
+[2025-07-24T06:08:44.570+0000] {task_command.py:423} INFO - Running <TaskInstance: bis_pipeline_dag.collect_bronze scheduled__2025-07-24T05:00:00+00:00 [running]> on host 72ae0ddbb41b
+[2025-07-24T06:08:44.739+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='admin' AIRFLOW_CTX_DAG_ID='bis_pipeline_dag' AIRFLOW_CTX_TASK_ID='collect_bronze' AIRFLOW_CTX_EXECUTION_DATE='2025-07-24T05:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-07-24T05:00:00+00:00'
+[2025-07-24T06:08:44.740+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-07-24T06:08:44.740+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'python /producer/api_producer.py']
+[2025-07-24T06:08:44.746+0000] {subprocess.py:86} INFO - Output:
+[2025-07-24T06:08:44.820+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2025-07-24T06:08:44.820+0000] {subprocess.py:93} INFO -   File "/producer/api_producer.py", line 3, in <module>
+[2025-07-24T06:08:44.820+0000] {subprocess.py:93} INFO -     from kafka import KafkaProducer
+[2025-07-24T06:08:44.820+0000] {subprocess.py:93} INFO - ModuleNotFoundError: No module named 'kafka'
+[2025-07-24T06:08:44.829+0000] {subprocess.py:97} INFO - Command exited with return code 1
+[2025-07-24T06:08:44.837+0000] {taskinstance.py:2698} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/operators/bash.py", line 212, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2025-07-24T06:08:44.838+0000] {taskinstance.py:1138} INFO - Marking task as UP_FOR_RETRY. dag_id=bis_pipeline_dag, task_id=collect_bronze, execution_date=20250724T050000, start_date=20250724T060844, end_date=20250724T060844
+[2025-07-24T06:08:44.901+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 2 for task collect_bronze (Bash command failed. The command returned a non-zero exit code 1.; 186)
+[2025-07-24T06:08:44.934+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2025-07-24T06:08:44.949+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-07-24T06:27:40.378+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: bis_pipeline_dag.collect_bronze scheduled__2025-07-24T05:00:00+00:00 [queued]>
+[2025-07-24T06:27:40.383+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: bis_pipeline_dag.collect_bronze scheduled__2025-07-24T05:00:00+00:00 [queued]>
+[2025-07-24T06:27:40.383+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 2
+[2025-07-24T06:27:40.440+0000] {taskinstance.py:2191} INFO - Executing <Task(BashOperator): collect_bronze> on 2025-07-24 05:00:00+00:00
+[2025-07-24T06:27:40.443+0000] {standard_task_runner.py:60} INFO - Started process 186 to run task
+[2025-07-24T06:27:40.446+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'bis_pipeline_dag', 'collect_bronze', 'scheduled__2025-07-24T05:00:00+00:00', '--job-id', '2', '--raw', '--subdir', 'DAGS_FOLDER/bis_pipeline_dag.py', '--cfg-path', '/tmp/tmpfo67zhko']
+[2025-07-24T06:27:40.447+0000] {standard_task_runner.py:88} INFO - Job 2: Subtask collect_bronze
+[2025-07-24T06:27:40.514+0000] {task_command.py:423} INFO - Running <TaskInstance: bis_pipeline_dag.collect_bronze scheduled__2025-07-24T05:00:00+00:00 [running]> on host 8130fb364860
+[2025-07-24T06:27:40.629+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='admin' AIRFLOW_CTX_DAG_ID='bis_pipeline_dag' AIRFLOW_CTX_TASK_ID='collect_bronze' AIRFLOW_CTX_EXECUTION_DATE='2025-07-24T05:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-07-24T05:00:00+00:00'
+[2025-07-24T06:27:40.630+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-07-24T06:27:40.630+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'python /producer/api_producer.py']
+[2025-07-24T06:27:40.635+0000] {subprocess.py:86} INFO - Output:
+[2025-07-24T06:27:40.706+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2025-07-24T06:27:40.706+0000] {subprocess.py:93} INFO -   File "/producer/api_producer.py", line 3, in <module>
+[2025-07-24T06:27:40.706+0000] {subprocess.py:93} INFO -     from kafka import KafkaProducer
+[2025-07-24T06:27:40.706+0000] {subprocess.py:93} INFO - ModuleNotFoundError: No module named 'kafka'
+[2025-07-24T06:27:40.714+0000] {subprocess.py:97} INFO - Command exited with return code 1
+[2025-07-24T06:27:40.722+0000] {taskinstance.py:2698} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/operators/bash.py", line 212, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2025-07-24T06:27:40.723+0000] {taskinstance.py:1138} INFO - Marking task as UP_FOR_RETRY. dag_id=bis_pipeline_dag, task_id=collect_bronze, execution_date=20250724T050000, start_date=20250724T062740, end_date=20250724T062740
+[2025-07-24T06:27:40.766+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 2 for task collect_bronze (Bash command failed. The command returned a non-zero exit code 1.; 186)
+[2025-07-24T06:27:40.792+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2025-07-24T06:27:40.811+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

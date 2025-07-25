@@ -1,43 +1,47 @@
-### Kafka Topic 생성
+### Docker 실행
 ```bash
-docker exec -it datawarehouse-kafka-1 \
-  kafka-topics --create \
-  --topic test-topic \
-  --bootstrap-server kafka:29092 \
-  --replication-factor 1 \
-  --partitions 1
+docker compose up -d
 ```
 
-### Kafka Topic 조회
+### Airflow Web Server 접속
+http://localhost:8088
+
+### DAG 실행
+- 'Pause/Unpause DAG' Toggle 선택
+
+### 데이터 확인
+- Kafka Topic 조회
 ```bash
-docer exec -it datawarehouse-kafka-1 \
+docker exec -it kafka \
   kafka-topics --list --bootstrap-server kafka:29092
 ```
 
-### Kafka Consumer 실행
+- Kafka Consumer 실행
 ```bash
-docker exec -it datawarehouse-kafka-1 \
+docker exec -it kafka \
   kafka-console-consumer --bootstrap-server kafka:29092 \
-  --topic test-topic --from-beginning
+  --topic BIS-BUS-ARRIVAL-INFO --from-beginning
 ```
 
-### Kafka 오프셋 조회
+- Kafka 오프셋 조회 (시험용. 필요없으면 패스)
 ```bash
-docker exec -it datawarehouse-kafka-1 \
+docker exec -it kafka \
   kafka-run-class kafka.tools.GetOffsetShell \
   --broker-list kafka:29092 \
-  --topic test-topic \
+  --topic BIS-BUS-ARRIVAL-INFO \
   --time -1
 ```
 
-### Spark로 Kafka 데이터 조회
-```bash
-docker exec -it spark-master spark-submit \
-  --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.3.4 \
-  /app/kafka_streaming.py
-```
+- MinIO 조회
+http://localhost:9001 접속
 
-### Kafka Producer 실행
+- PostgreSQL 조회
 ```bash
-python ./producer/api_producer.py
+docker exec -it postgres bash
+```
+```bash
+psql -U admin_dw -t datawarehouse
+```
+```bash
+SELECT * FROM bus_arrival_info;
 ```

@@ -1,0 +1,21 @@
+[2025-07-24T09:39:31.304+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: bis_pipeline_dag.collect_bronze manual__2025-07-24T09:39:30.297632+00:00 [queued]>
+[2025-07-24T09:39:31.308+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: bis_pipeline_dag.collect_bronze manual__2025-07-24T09:39:30.297632+00:00 [queued]>
+[2025-07-24T09:39:31.309+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 1
+[2025-07-24T09:39:31.377+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): collect_bronze> on 2025-07-24 09:39:30.297632+00:00
+[2025-07-24T09:39:31.380+0000] {standard_task_runner.py:60} INFO - Started process 206 to run task
+[2025-07-24T09:39:31.382+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'bis_pipeline_dag', 'collect_bronze', 'manual__2025-07-24T09:39:30.297632+00:00', '--job-id', '12', '--raw', '--subdir', 'DAGS_FOLDER/bis_pipeline_dag.py', '--cfg-path', '/tmp/tmpplrzs1y8']
+[2025-07-24T09:39:31.383+0000] {standard_task_runner.py:88} INFO - Job 12: Subtask collect_bronze
+[2025-07-24T09:39:31.470+0000] {task_command.py:423} INFO - Running <TaskInstance: bis_pipeline_dag.collect_bronze manual__2025-07-24T09:39:30.297632+00:00 [running]> on host 382e272d1760
+[2025-07-24T09:39:31.618+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='bis_pipeline_dag' AIRFLOW_CTX_TASK_ID='collect_bronze' AIRFLOW_CTX_EXECUTION_DATE='2025-07-24T09:39:30.297632+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-07-24T09:39:30.297632+00:00'
+[2025-07-24T09:39:31.619+0000] {conn.py:396} INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=bootstrap-0 host=kafka:29092 <connecting> [IPv4 ('172.24.0.8', 29092)]>: connecting to kafka:29092 [('172.24.0.8', 29092) IPv4]
+[2025-07-24T09:39:31.623+0000] {conn.py:618} INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=bootstrap-0 host=kafka:29092 <checking_api_versions_recv> [IPv4 ('172.24.0.8', 29092)]>: Broker version identified as 2.6
+[2025-07-24T09:39:31.623+0000] {conn.py:457} INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=bootstrap-0 host=kafka:29092 <connected> [IPv4 ('172.24.0.8', 29092)]>: Connection complete.
+[2025-07-24T09:39:31.847+0000] {conn.py:396} INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=1 host=kafka:29092 <connecting> [IPv4 ('172.24.0.8', 29092)]>: connecting to kafka:29092 [('172.24.0.8', 29092) IPv4]
+[2025-07-24T09:39:31.847+0000] {conn.py:457} INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=1 host=kafka:29092 <connected> [IPv4 ('172.24.0.8', 29092)]>: Connection complete.
+[2025-07-24T09:39:31.847+0000] {conn.py:945} INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=bootstrap-0 host=kafka:29092 <connected> [IPv4 ('172.24.0.8', 29092)]>: Closing connection. 
+[2025-07-24T09:39:31.850+0000] {logging_mixin.py:188} INFO - 메시지 전송 완료: {'tableInfo': {'pageNo': '1', 'numOfRows': '10', 'totalCnt': '1', 'resultCode': '200', 'resultMsg': 'SUCCESS', 'list': {'row': {'VEHICLENO': '울산71자2237', 'RNUM': '1', 'PREVSTOPCNT': '19', 'ARRIVALTIME': '1798', 'ROUTEID': '195000199', 'REMARK': '처용마을입구 방면', 'STOPID': '196040122', 'STOPNM': '(주)TCT제2공장', 'PRESENTSTOPNM': '동원아파트앞', 'ROUTENM': '725'}}}}
+[2025-07-24T09:39:31.851+0000] {conn.py:945} INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=1 host=kafka:29092 <connected> [IPv4 ('172.24.0.8', 29092)]>: Closing connection. 
+[2025-07-24T09:39:31.851+0000] {python.py:201} INFO - Done. Returned value was: None
+[2025-07-24T09:39:31.858+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=bis_pipeline_dag, task_id=collect_bronze, execution_date=20250724T093930, start_date=20250724T093931, end_date=20250724T093931
+[2025-07-24T09:39:31.956+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2025-07-24T09:39:31.972+0000] {taskinstance.py:3280} INFO - 1 downstream tasks scheduled from follow-on schedule check

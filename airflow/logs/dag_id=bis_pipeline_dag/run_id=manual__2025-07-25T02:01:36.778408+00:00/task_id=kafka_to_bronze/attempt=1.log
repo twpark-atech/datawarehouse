@@ -1,0 +1,254 @@
+[2025-07-25T02:01:39.443+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: bis_pipeline_dag.kafka_to_bronze manual__2025-07-25T02:01:36.778408+00:00 [queued]>
+[2025-07-25T02:01:39.448+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: bis_pipeline_dag.kafka_to_bronze manual__2025-07-25T02:01:36.778408+00:00 [queued]>
+[2025-07-25T02:01:39.448+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 1
+[2025-07-25T02:01:39.478+0000] {taskinstance.py:2191} INFO - Executing <Task(DockerOperator): kafka_to_bronze> on 2025-07-25 02:01:36.778408+00:00
+[2025-07-25T02:01:39.481+0000] {standard_task_runner.py:60} INFO - Started process 257 to run task
+[2025-07-25T02:01:39.483+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'bis_pipeline_dag', 'kafka_to_bronze', 'manual__2025-07-25T02:01:36.778408+00:00', '--job-id', '40', '--raw', '--subdir', 'DAGS_FOLDER/bis_pipeline_dag.py', '--cfg-path', '/tmp/tmpotxreweh']
+[2025-07-25T02:01:39.484+0000] {standard_task_runner.py:88} INFO - Job 40: Subtask kafka_to_bronze
+[2025-07-25T02:01:39.554+0000] {task_command.py:423} INFO - Running <TaskInstance: bis_pipeline_dag.kafka_to_bronze manual__2025-07-25T02:01:36.778408+00:00 [running]> on host f2fb5fb74adc
+[2025-07-25T02:01:39.703+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='bis_pipeline_dag' AIRFLOW_CTX_TASK_ID='kafka_to_bronze' AIRFLOW_CTX_EXECUTION_DATE='2025-07-25T02:01:36.778408+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-07-25T02:01:36.778408+00:00'
+[2025-07-25T02:01:39.738+0000] {docker.py:359} INFO - Starting docker container from image my-spark:3.3-kafka
+[2025-07-25T02:01:42.786+0000] {docker.py:429} INFO - [38;5;6mspark [38;5;5m02:01:42.47 [0m[38;5;2mINFO [0m ==>
+[2025-07-25T02:01:42.786+0000] {docker.py:429} INFO - [38;5;6mspark [38;5;5m02:01:42.47 [0m[38;5;2mINFO [0m ==> [1mWelcome to the Bitnami spark container[0m
+[2025-07-25T02:01:42.786+0000] {docker.py:429} INFO - [38;5;6mspark [38;5;5m02:01:42.47 [0m[38;5;2mINFO [0m ==> Subscribe to project updates by watching [1mhttps://github.com/bitnami/containers[0m
+[2025-07-25T02:01:42.786+0000] {docker.py:429} INFO - [38;5;6mspark [38;5;5m02:01:42.47 [0m[38;5;2mINFO [0m ==> Submit issues and feature requests at [1mhttps://github.com/bitnami/containers/issues[0m
+[2025-07-25T02:01:42.786+0000] {docker.py:429} INFO - [38;5;6mspark [38;5;5m02:01:42.47 [0m[38;5;2mINFO [0m ==>
+[2025-07-25T02:01:42.786+0000] {docker.py:429} INFO - 
+[2025-07-25T02:01:43.792+0000] {docker.py:429} INFO - 25/07/25 02:01:43 INFO SparkContext: Running Spark version 3.3.4
+[2025-07-25T02:01:43.811+0000] {docker.py:429} INFO - 25/07/25 02:01:43 INFO ResourceUtils: ==============================================================
+[2025-07-25T02:01:43.811+0000] {docker.py:429} INFO - 25/07/25 02:01:43 INFO ResourceUtils: No custom resources configured for spark.driver.
+[2025-07-25T02:01:43.812+0000] {docker.py:429} INFO - 25/07/25 02:01:43 INFO ResourceUtils: ==============================================================
+[2025-07-25T02:01:43.812+0000] {docker.py:429} INFO - 25/07/25 02:01:43 INFO SparkContext: Submitted application: IngestBronze
+[2025-07-25T02:01:43.825+0000] {docker.py:429} INFO - 25/07/25 02:01:43 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(cores -> name: cores, amount: 1, script: , vendor: , memory -> name: memory, amount: 1024, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+[2025-07-25T02:01:43.831+0000] {docker.py:429} INFO - 25/07/25 02:01:43 INFO ResourceProfile: Limiting resource is cpu
+[2025-07-25T02:01:43.832+0000] {docker.py:429} INFO - 25/07/25 02:01:43 INFO ResourceProfileManager: Added ResourceProfile id: 0
+[2025-07-25T02:01:43.865+0000] {docker.py:429} INFO - 25/07/25 02:01:43 INFO SecurityManager: Changing view acls to: root,spark
+[2025-07-25T02:01:43.866+0000] {docker.py:429} INFO - 25/07/25 02:01:43 INFO SecurityManager: Changing modify acls to: root,spark
+[2025-07-25T02:01:43.866+0000] {docker.py:429} INFO - 25/07/25 02:01:43 INFO SecurityManager: Changing view acls groups to:
+[2025-07-25T02:01:43.867+0000] {docker.py:429} INFO - 25/07/25 02:01:43 INFO SecurityManager: Changing modify acls groups to:
+[2025-07-25T02:01:43.867+0000] {docker.py:429} INFO - 25/07/25 02:01:43 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(root, spark); groups with view permissions: Set(); users  with modify permissions: Set(root, spark); groups with modify permissions: Set()
+[2025-07-25T02:01:43.905+0000] {docker.py:429} INFO - 25/07/25 02:01:43 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2025-07-25T02:01:44.072+0000] {docker.py:429} INFO - 25/07/25 02:01:44 INFO Utils: Successfully started service 'sparkDriver' on port 44829.
+[2025-07-25T02:01:44.089+0000] {docker.py:429} INFO - 25/07/25 02:01:44 INFO SparkEnv: Registering MapOutputTracker
+[2025-07-25T02:01:44.113+0000] {docker.py:429} INFO - 25/07/25 02:01:44 INFO SparkEnv: Registering BlockManagerMaster
+[2025-07-25T02:01:44.124+0000] {docker.py:429} INFO - 25/07/25 02:01:44 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+[2025-07-25T02:01:44.124+0000] {docker.py:429} INFO - 25/07/25 02:01:44 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+[2025-07-25T02:01:44.127+0000] {docker.py:429} INFO - 25/07/25 02:01:44 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+[2025-07-25T02:01:44.138+0000] {docker.py:429} INFO - 25/07/25 02:01:44 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-61681fdd-d9e2-428b-9f81-7873b146b1ca
+[2025-07-25T02:01:44.149+0000] {docker.py:429} INFO - 25/07/25 02:01:44 INFO MemoryStore: MemoryStore started with capacity 434.4 MiB
+[2025-07-25T02:01:44.158+0000] {docker.py:429} INFO - 25/07/25 02:01:44 INFO SparkEnv: Registering OutputCommitCoordinator
+[2025-07-25T02:01:44.280+0000] {docker.py:429} INFO - 25/07/25 02:01:44 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+[2025-07-25T02:01:44.347+0000] {docker.py:429} INFO - 25/07/25 02:01:44 INFO Executor: Starting executor ID driver on host 2d0a3c5840b2
+[2025-07-25T02:01:44.351+0000] {docker.py:429} INFO - 25/07/25 02:01:44 INFO Executor: Starting executor with user classpath (userClassPathFirst = false): ''
+[2025-07-25T02:01:44.364+0000] {docker.py:429} INFO - 25/07/25 02:01:44 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 38171.
+[2025-07-25T02:01:44.364+0000] {docker.py:429} INFO - 25/07/25 02:01:44 INFO NettyBlockTransferService: Server created on 2d0a3c5840b2:38171
+[2025-07-25T02:01:44.365+0000] {docker.py:429} INFO - 25/07/25 02:01:44 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+[2025-07-25T02:01:44.376+0000] {docker.py:429} INFO - 25/07/25 02:01:44 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, 2d0a3c5840b2, 38171, None)
+[2025-07-25T02:01:44.378+0000] {docker.py:429} INFO - 25/07/25 02:01:44 INFO BlockManagerMasterEndpoint: Registering block manager 2d0a3c5840b2:38171 with 434.4 MiB RAM, BlockManagerId(driver, 2d0a3c5840b2, 38171, None)
+[2025-07-25T02:01:44.380+0000] {docker.py:429} INFO - 25/07/25 02:01:44 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, 2d0a3c5840b2, 38171, None)
+[2025-07-25T02:01:44.380+0000] {docker.py:429} INFO - 25/07/25 02:01:44 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, 2d0a3c5840b2, 38171, None)
+[2025-07-25T02:01:46.023+0000] {docker.py:429} INFO - 25/07/25 02:01:46 WARN ResolveWriteToStream: Temporary checkpoint location created which is deleted normally when the query didn't fail: /tmp/temporary-4f14038d-2c78-40c9-8683-f048385fc2ba. If it's required to delete it under any circumstances, please set spark.sql.streaming.forceDeleteTempCheckpointLocation to true. Important to know deleting temp checkpoint folder is best effort.
+[2025-07-25T02:01:46.033+0000] {docker.py:429} INFO - 25/07/25 02:01:46 WARN ResolveWriteToStream: spark.sql.adaptive.enabled is not supported in streaming DataFrames/Datasets and will be disabled.
+[2025-07-25T02:01:46.137+0000] {docker.py:429} INFO - 25/07/25 02:01:46 ERROR MicroBatchExecution: Query [id = d212c76e-26ea-434b-b9e0-2356f377af7f, runId = b6caf244-0a0e-4e81-b03f-4a1083a4179d] terminated with error
+java.lang.NoClassDefFoundError: org/apache/spark/kafka010/KafkaConfigUpdater
+	at org.apache.spark.sql.kafka010.KafkaSourceProvider$.kafkaParamsForDriver(KafkaSourceProvider.scala:645)
+	at org.apache.spark.sql.kafka010.KafkaSourceProvider$KafkaScan.toMicroBatchStream(KafkaSourceProvider.scala:482)
+	at org.apache.spark.sql.execution.streaming.MicroBatchExecution$$anonfun$1.$anonfun$applyOrElse$4(MicroBatchExecution.scala:104)
+	at scala.collection.mutable.HashMap.getOrElseUpdate(HashMap.scala:86)
+	at org.apache.spark.sql.execution.streaming.MicroBatchExecution$$anonfun$1.applyOrElse(MicroBatchExecution.scala:97)
+	at org.apache.spark.sql.execution.streaming.MicroBatchExecution$$anonfun$1.applyOrElse(MicroBatchExecution.scala:82)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.$anonfun$transformDownWithPruning$1(TreeNode.scala:584)
+	at org.apache.spark.sql.catalyst.trees.CurrentOrigin$.withOrigin(TreeNode.scala:176)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.transformDownWithPruning(TreeNode.scala:584)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.org$apache$spark$sql$catalyst$plans$logical$AnalysisHelper$$super$transformDownWithPruning(LogicalPlan.scala:30)
+	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.transformDownWithPruning(AnalysisHelper.scala:267)
+	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.transformDownWithPruning$(AnalysisHelper.scala:263)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.transformDownWithPruning(LogicalPlan.scala:30)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.transformDownWithPruning(LogicalPlan.scala:30)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.$anonfun$transformDownWithPruning$3(TreeNode.scala:589)
+	at org.apache.spark.sql.catalyst.trees.UnaryLike.mapChildren(TreeNode.scala:1228)
+	at org.apache.spark.sql.catalyst.trees.UnaryLike.mapChildren$(TreeNode.scala:1227)
+	at org.apache.spark.sql.catalyst.plans.logical.OrderPreservingUnaryNode.mapChildren(LogicalPlan.scala:208)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.transformDownWithPruning(TreeNode.scala:589)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.org$apache$spark$sql$catalyst$plans$logical$AnalysisHelper$$super$transformDownWithPruning(LogicalPlan.scala:30)
+	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.transformDownWithPruning(AnalysisHelper.scala:267)
+	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.transformDownWithPruning$(AnalysisHelper.scala:263)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.transformDownWithPruning(LogicalPlan.scala:30)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.transformDownWithPruning(LogicalPlan.scala:30)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.$anonfun$transformDownWithPruning$3(TreeNode.scala:589)
+	at org.apache.spark.sql.catalyst.trees.UnaryLike.mapChildren(TreeNode.scala:1228)
+	at org.apache.spark.sql.catalyst.trees.UnaryLike.mapChildren$(TreeNode.scala:1227)
+	at org.apache.spark.sql.catalyst.plans.logical.OrderPreservingUnaryNode.mapChildren(LogicalPlan.scala:208)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.transformDownWithPruning(TreeNode.scala:589)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.org$apache$spark$sql$catalyst$plans$logical$AnalysisHelper$$super$transformDownWithPruning(LogicalPlan.scala:30)
+	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.transformDownWithPruning(AnalysisHelper.scala:267)
+	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.transformDownWithPruning$(AnalysisHelper.scala:263)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.transformDownWithPruning(LogicalPlan.scala:30)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.transformDownWithPruning(LogicalPlan.scala:30)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.$anonfun$transformDownWithPruning$3(TreeNode.scala:589)
+	at org.apache.spark.sql.catalyst.trees.UnaryLike.mapChildren(TreeNode.scala:1228)
+	at org.apache.spark.sql.catalyst.trees.UnaryLike.mapChildren$(TreeNode.scala:1227)
+	at org.apache.spark.sql.catalyst.plans.logical.OrderPreservingUnaryNode.mapChildren(LogicalPlan.scala:208)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.transformDownWithPruning(TreeNode.scala:589)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.org$apache$spark$sql$catalyst$plans$logical$AnalysisHelper$$super$transformDownWithPruning(LogicalPlan.scala:30)
+	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.transformDownWithPruning(AnalysisHelper.scala:267)
+	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.transformDownWithPruning$(AnalysisHelper.scala:263)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.transformDownWithPruning(LogicalPlan.scala:30)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.transformDownWithPruning(LogicalPlan.scala:30)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.$anonfun$transformDownWithPruning$3(TreeNode.scala:589)
+	at org.apache.spark.sql.catalyst.trees.UnaryLike.mapChildren(TreeNode.scala:1228)
+	at org.apache.spark.sql.catalyst.trees.UnaryLike.mapChildren$(TreeNode.scala:1227)
+	at org.apache.spark.sql.catalyst.plans.logical.Generate.mapChildren(basicLogicalOperators.scala:121)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.transformDownWithPruning(TreeNode.scala:589)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.org$apache$spark$sql$catalyst$plans$logical$AnalysisHelper$$super$transformDownWithPruning(LogicalPlan.scala:30)
+	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.transformDownWithPruning(AnalysisHelper.scala:267)
+	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.transformDownWithPruning$(AnalysisHelper.scala:263)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.transformDownWithPruning(LogicalPlan.scala:30)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.transformDownWithPruning(LogicalPlan.scala:30)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.$anonfun$transformDownWithPruning$3(TreeNode.scala:589)
+	at org.apache.spark.sql.catalyst.trees.UnaryLike.mapChildren(TreeNode.scala:1228)
+	at org.apache.spark.sql.catalyst.trees.UnaryLike.mapChildren$(TreeNode.scala:1227)
+	at org.apache.spark.sql.catalyst.plans.logical.OrderPreservingUnaryNode.mapChildren(LogicalPlan.scala:208)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.transformDownWithPruning(TreeNode.scala:589)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.org$apache$spark$sql$catalyst$plans$logical$AnalysisHelper$$super$transformDownWithPruning(LogicalPlan.scala:30)
+	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.transformDownWithPruning(AnalysisHelper.scala:267)
+	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.transformDownWithPruning$(AnalysisHelper.scala:263)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.transformDownWithPruning(LogicalPlan.scala:30)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.transformDownWithPruning(LogicalPlan.scala:30)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.$anonfun$transformDownWithPruning$3(TreeNode.scala:589)
+	at org.apache.spark.sql.catalyst.trees.UnaryLike.mapChildren(TreeNode.scala:1228)
+	at org.apache.spark.sql.catalyst.trees.UnaryLike.mapChildren$(TreeNode.scala:1227)
+	at org.apache.spark.sql.catalyst.plans.logical.OrderPreservingUnaryNode.mapChildren(LogicalPlan.scala:208)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.transformDownWithPruning(TreeNode.scala:589)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.org$apache$spark$sql$catalyst$plans$logical$AnalysisHelper$$super$transformDownWithPruning(LogicalPlan.scala:30)
+	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.transformDownWithPruning(AnalysisHelper.scala:267)
+	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.transformDownWithPruning$(AnalysisHelper.scala:263)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.transformDownWithPruning(LogicalPlan.scala:30)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.transformDownWithPruning(LogicalPlan.scala:30)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.transformDown(TreeNode.scala:560)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.transform(TreeNode.scala:528)
+	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.logicalPlan$lzycompute(MicroBatchExecution.scala:82)
+	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.logicalPlan(MicroBatchExecution.scala:62)
+	at org.apache.spark.sql.execution.streaming.StreamExecution.$anonfun$runStream$1(StreamExecution.scala:299)
+	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:779)
+	at org.apache.spark.sql.execution.streaming.StreamExecution.org$apache$spark$sql$execution$streaming$StreamExecution$$runStream(StreamExecution.scala:285)
+	at org.apache.spark.sql.execution.streaming.StreamExecution$$anon$1.run(StreamExecution.scala:208)
+Caused by: java.lang.ClassNotFoundException: org.apache.spark.kafka010.KafkaConfigUpdater
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641)
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:525)
+	... 83 more
+[2025-07-25T02:01:46.141+0000] {docker.py:429} INFO - Exception in thread "stream execution thread for [id = d212c76e-26ea-434b-b9e0-2356f377af7f, runId = b6caf244-0a0e-4e81-b03f-4a1083a4179d]"
+[2025-07-25T02:01:46.142+0000] {docker.py:429} INFO - java.lang.NoClassDefFoundError: org/apache/spark/kafka010/KafkaConfigUpdater
+	at org.apache.spark.sql.kafka010.KafkaSourceProvider$.kafkaParamsForDriver(KafkaSourceProvider.scala:645)
+	at org.apache.spark.sql.kafka010.KafkaSourceProvider$KafkaScan.toMicroBatchStream(KafkaSourceProvider.scala:482)
+	at org.apache.spark.sql.execution.streaming.MicroBatchExecution$$anonfun$1.$anonfun$applyOrElse$4(MicroBatchExecution.scala:104)
+	at scala.collection.mutable.HashMap.getOrElseUpdate(HashMap.scala:86)
+	at org.apache.spark.sql.execution.streaming.MicroBatchExecution$$anonfun$1.applyOrElse(MicroBatchExecution.scala:97)
+	at org.apache.spark.sql.execution.streaming.MicroBatchExecution$$anonfun$1.applyOrElse(MicroBatchExecution.scala:82)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.$anonfun$transformDownWithPruning$1(TreeNode.scala:584)
+	at org.apache.spark.sql.catalyst.trees.CurrentOrigin$.withOrigin(TreeNode.scala:176)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.transformDownWithPruning(TreeNode.scala:584)
+[2025-07-25T02:01:46.143+0000] {docker.py:429} INFO - at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.org$apache$spark$sql$catalyst$plans$logical$AnalysisHelper$$super$transformDownWithPruning(LogicalPlan.scala:30)
+	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.transformDownWithPruning(AnalysisHelper.scala:267)
+	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.transformDownWithPruning$(AnalysisHelper.scala:263)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.transformDownWithPruning(LogicalPlan.scala:30)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.transformDownWithPruning(LogicalPlan.scala:30)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.$anonfun$transformDownWithPruning$3(TreeNode.scala:589)
+	at org.apache.spark.sql.catalyst.trees.UnaryLike.mapChildren(TreeNode.scala:1228)
+	at org.apache.spark.sql.catalyst.trees.UnaryLike.mapChildren$(TreeNode.scala:1227)
+	at org.apache.spark.sql.catalyst.plans.logical.OrderPreservingUnaryNode.mapChildren(LogicalPlan.scala:208)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.transformDownWithPruning(TreeNode.scala:589)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.org$apache$spark$sql$catalyst$plans$logical$AnalysisHelper$$super$transformDownWithPruning(LogicalPlan.scala:30)
+	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.transformDownWithPruning(AnalysisHelper.scala:267)
+	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.transformDownWithPruning$(AnalysisHelper.scala:263)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.transformDownWithPruning(LogicalPlan.scala:30)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.transformDownWithPruning(LogicalPlan.scala:30)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.$anonfun$transformDownWithPruning$3(TreeNode.scala:589)
+	at org.apache.spark.sql.catalyst.trees.UnaryLike.mapChildren(TreeNode.scala:1228)
+	at org.apache.spark.sql.catalyst.trees.UnaryLike.mapChildren$(TreeNode.scala:1227)
+	at org.apache.spark.sql.catalyst.plans.logical.OrderPreservingUnaryNode.mapChildren(LogicalPlan.scala:208)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.transformDownWithPruning(TreeNode.scala:589)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.org$apache$spark$sql$catalyst$plans$logical$AnalysisHelper$$super$transformDownWithPruning(LogicalPlan.scala:30)
+	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.transformDownWithPruning(AnalysisHelper.scala:267)
+	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.transformDownWithPruning$(AnalysisHelper.scala:263)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.transformDownWithPruning(LogicalPlan.scala:30)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.transformDownWithPruning(LogicalPlan.scala:30)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.$anonfun$transformDownWithPruning$3(TreeNode.scala:589)
+	at org.apache.spark.sql.catalyst.trees.UnaryLike.mapChildren(TreeNode.scala:1228)
+	at org.apache.spark.sql.catalyst.trees.UnaryLike.mapChildren$(TreeNode.scala:1227)
+	at org.apache.spark.sql.catalyst.plans.logical.OrderPreservingUnaryNode.mapChildren(LogicalPlan.scala:208)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.transformDownWithPruning(TreeNode.scala:589)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.org$apache$spark$sql$catalyst$plans$logical$AnalysisHelper$$super$transformDownWithPruning(LogicalPlan.scala:30)
+	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.transformDownWithPruning(AnalysisHelper.scala:267)
+	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.transformDownWithPruning$(AnalysisHelper.scala:263)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.transformDownWithPruning(LogicalPlan.scala:30)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.transformDownWithPruning(LogicalPlan.scala:30)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.$anonfun$transformDownWithPruning$3(TreeNode.scala:589)
+	at org.apache.spark.sql.catalyst.trees.UnaryLike.mapChildren(TreeNode.scala:1228)
+	at org.apache.spark.sql.catalyst.trees.UnaryLike.mapChildren$(TreeNode.scala:1227)
+	at org.apache.spark.sql.catalyst.plans.logical.Generate.mapChildren(basicLogicalOperators.scala:121)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.transformDownWithPruning(TreeNode.scala:589)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.org$apache$spark$sql$catalyst$plans$logical$AnalysisHelper$$super$transformDownWithPruning(LogicalPlan.scala:30)
+	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.transformDownWithPruning(AnalysisHelper.scala:267)
+	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.transformDownWithPruning$(AnalysisHelper.scala:263)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.transformDownWithPruning(LogicalPlan.scala:30)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.transformDownWithPruning(LogicalPlan.scala:30)
+[2025-07-25T02:01:46.144+0000] {docker.py:429} INFO - at org.apache.spark.sql.catalyst.trees.TreeNode.$anonfun$transformDownWithPruning$3(TreeNode.scala:589)
+	at org.apache.spark.sql.catalyst.trees.UnaryLike.mapChildren(TreeNode.scala:1228)
+	at org.apache.spark.sql.catalyst.trees.UnaryLike.mapChildren$(TreeNode.scala:1227)
+	at org.apache.spark.sql.catalyst.plans.logical.OrderPreservingUnaryNode.mapChildren(LogicalPlan.scala:208)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.transformDownWithPruning(TreeNode.scala:589)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.org$apache$spark$sql$catalyst$plans$logical$AnalysisHelper$$super$transformDownWithPruning(LogicalPlan.scala:30)
+	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.transformDownWithPruning(AnalysisHelper.scala:267)
+	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.transformDownWithPruning$(AnalysisHelper.scala:263)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.transformDownWithPruning(LogicalPlan.scala:30)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.transformDownWithPruning(LogicalPlan.scala:30)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.$anonfun$transformDownWithPruning$3(TreeNode.scala:589)
+	at org.apache.spark.sql.catalyst.trees.UnaryLike.mapChildren(TreeNode.scala:1228)
+	at org.apache.spark.sql.catalyst.trees.UnaryLike.mapChildren$(TreeNode.scala:1227)
+	at org.apache.spark.sql.catalyst.plans.logical.OrderPreservingUnaryNode.mapChildren(LogicalPlan.scala:208)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.transformDownWithPruning(TreeNode.scala:589)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.org$apache$spark$sql$catalyst$plans$logical$AnalysisHelper$$super$transformDownWithPruning(LogicalPlan.scala:30)
+	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.transformDownWithPruning(AnalysisHelper.scala:267)
+	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.transformDownWithPruning$(AnalysisHelper.scala:263)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.transformDownWithPruning(LogicalPlan.scala:30)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.transformDownWithPruning(LogicalPlan.scala:30)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.transformDown(TreeNode.scala:560)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.transform(TreeNode.scala:528)
+[2025-07-25T02:01:46.145+0000] {docker.py:429} INFO - at org.apache.spark.sql.execution.streaming.MicroBatchExecution.logicalPlan$lzycompute(MicroBatchExecution.scala:82)
+	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.logicalPlan(MicroBatchExecution.scala:62)
+	at org.apache.spark.sql.execution.streaming.StreamExecution.$anonfun$runStream$1(StreamExecution.scala:299)
+	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:779)
+	at org.apache.spark.sql.execution.streaming.StreamExecution.org$apache$spark$sql$execution$streaming$StreamExecution$$runStream(StreamExecution.scala:285)
+	at org.apache.spark.sql.execution.streaming.StreamExecution$$anon$1.run(StreamExecution.scala:208)
+Caused by: java.lang.ClassNotFoundException: org.apache.spark.kafka010.KafkaConfigUpdater
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641)
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:525)
+[2025-07-25T02:01:46.145+0000] {docker.py:429} INFO - ... 83 more
+[2025-07-25T02:01:46.306+0000] {docker.py:429} INFO - Traceback (most recent call last):
+  File "/app/bronze.py", line 62, in <module>
+    query.awaitTermination(timeout=30)
+  File "/opt/bitnami/spark/python/lib/pyspark.zip/pyspark/sql/streaming.py", line 105, in awaitTermination
+[2025-07-25T02:01:46.306+0000] {docker.py:429} INFO - File "/opt/bitnami/spark/python/lib/py4j-0.10.9.5-src.zip/py4j/java_gateway.py", line 1321, in __call__
+  File "/opt/bitnami/spark/python/lib/pyspark.zip/pyspark/sql/utils.py", line 196, in deco
+pyspark.sql.utils.StreamingQueryException
+[2025-07-25T02:01:46.311+0000] {docker.py:429} INFO - : Query [id = d212c76e-26ea-434b-b9e0-2356f377af7f, runId = b6caf244-0a0e-4e81-b03f-4a1083a4179d] terminated with exception: org/apache/spark/kafka010/KafkaConfigUpdater
+[2025-07-25T02:01:48.477+0000] {taskinstance.py:2698} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/providers/docker/operators/docker.py", line 502, in execute
+    return self._run_image()
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/providers/docker/operators/docker.py", line 364, in _run_image
+    return self._run_image_with_mounts([*self.mounts, tmp_mount], add_tmp_variable=True)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/providers/docker/operators/docker.py", line 437, in _run_image_with_mounts
+    raise DockerContainerFailedException(f"Docker container failed: {result!r}", logs=log_lines)
+airflow.providers.docker.exceptions.DockerContainerFailedException: Docker container failed: {'StatusCode': 1}
+[2025-07-25T02:01:48.479+0000] {taskinstance.py:1138} INFO - Marking task as FAILED. dag_id=bis_pipeline_dag, task_id=kafka_to_bronze, execution_date=20250725T020136, start_date=20250725T020139, end_date=20250725T020148
+[2025-07-25T02:01:48.535+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 40 for task kafka_to_bronze (Docker container failed: {'StatusCode': 1}; 257)
+[2025-07-25T02:01:48.542+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2025-07-25T02:01:48.558+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

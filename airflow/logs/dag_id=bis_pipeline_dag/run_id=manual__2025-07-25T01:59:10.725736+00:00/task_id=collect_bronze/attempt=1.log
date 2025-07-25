@@ -1,0 +1,35 @@
+[2025-07-25T01:59:12.193+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: bis_pipeline_dag.collect_bronze manual__2025-07-25T01:59:10.725736+00:00 [queued]>
+[2025-07-25T01:59:12.199+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: bis_pipeline_dag.collect_bronze manual__2025-07-25T01:59:10.725736+00:00 [queued]>
+[2025-07-25T01:59:12.199+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 1
+[2025-07-25T01:59:12.264+0000] {taskinstance.py:2191} INFO - Executing <Task(BashOperator): collect_bronze> on 2025-07-25 01:59:10.725736+00:00
+[2025-07-25T01:59:12.267+0000] {standard_task_runner.py:60} INFO - Started process 222 to run task
+[2025-07-25T01:59:12.270+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'bis_pipeline_dag', 'collect_bronze', 'manual__2025-07-25T01:59:10.725736+00:00', '--job-id', '37', '--raw', '--subdir', 'DAGS_FOLDER/bis_pipeline_dag.py', '--cfg-path', '/tmp/tmpjgvgn_38']
+[2025-07-25T01:59:12.272+0000] {standard_task_runner.py:88} INFO - Job 37: Subtask collect_bronze
+[2025-07-25T01:59:12.361+0000] {task_command.py:423} INFO - Running <TaskInstance: bis_pipeline_dag.collect_bronze manual__2025-07-25T01:59:10.725736+00:00 [running]> on host f2fb5fb74adc
+[2025-07-25T01:59:12.517+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='bis_pipeline_dag' AIRFLOW_CTX_TASK_ID='collect_bronze' AIRFLOW_CTX_EXECUTION_DATE='2025-07-25T01:59:10.725736+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-07-25T01:59:10.725736+00:00'
+[2025-07-25T01:59:12.518+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-07-25T01:59:12.519+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'python /opt/airflow/dags/kafka/api_producer.py']
+[2025-07-25T01:59:12.525+0000] {subprocess.py:86} INFO - Output:
+[2025-07-25T01:59:12.912+0000] {subprocess.py:93} INFO - 메시지 전송 완료: {'tableInfo': {'pageNo': '1', 'numOfRows': '10', 'totalCnt': '3', 'resultCode': '200', 'resultMsg': 'SUCCESS', 'list': {'row': [{'VEHICLENO': '울산71자3208', 'RNUM': '1', 'PREVSTOPCNT': '5', 'ARRIVALTIME': '381', 'ROUTEID': '196000428', 'REMARK': '처용마을입구 방면', 'STOPID': '196040122', 'STOPNM': '(주)TCT제2공장', 'PRESENTSTOPNM': '백골부대성역지', 'ROUTENM': '518'}, {'VEHICLENO': '울산71자2226', 'RNUM': '2', 'PREVSTOPCNT': '6', 'ARRIVALTIME': '504', 'ROUTEID': '195000199', 'REMARK': '처용마을입구 방면', 'STOPID': '196040122', 'STOPNM': '(주)TCT제2공장', 'PRESENTSTOPNM': '온산읍 행정복지센', 'ROUTENM': '725'}, {'VEHICLENO': '울산71자2672', 'RNUM': '3', 'PREVSTOPCNT': '7', 'ARRIVALTIME': '504', 'ROUTEID': '196000384', 'REMARK': '처용마을입구 방면', 'STOPID': '196040122', 'STOPNM': '(주)TCT제2공장', 'PRESENTSTOPNM': '온산우체국앞', 'ROUTENM': '415'}]}}}
+[2025-07-25T01:59:12.913+0000] {subprocess.py:93} INFO - Exception ignored in atexit callback: <function KafkaProducer._cleanup_factory.<locals>.wrapper at 0x7b029eee7130>
+[2025-07-25T01:59:12.913+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2025-07-25T01:59:12.913+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.10/site-packages/kafka/producer/kafka.py", line 575, in wrapper
+[2025-07-25T01:59:12.913+0000] {subprocess.py:93} INFO -     _self.close(timeout=0, null_logger=True)
+[2025-07-25T01:59:12.913+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.10/site-packages/kafka/producer/kafka.py", line 630, in close
+[2025-07-25T01:59:12.913+0000] {subprocess.py:93} INFO -     self.flush(timeout)
+[2025-07-25T01:59:12.913+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.10/site-packages/kafka/producer/kafka.py", line 919, in flush
+[2025-07-25T01:59:12.913+0000] {subprocess.py:93} INFO -     self._accumulator.await_flush_completion(timeout=timeout)
+[2025-07-25T01:59:12.914+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.10/site-packages/kafka/producer/record_accumulator.py", line 586, in await_flush_completion
+[2025-07-25T01:59:12.914+0000] {subprocess.py:93} INFO -     raise Errors.KafkaTimeoutError('Timeout waiting for future')
+[2025-07-25T01:59:12.914+0000] {subprocess.py:93} INFO - kafka.errors.KafkaTimeoutError: KafkaTimeoutError: Timeout waiting for future
+[2025-07-25T01:59:13.927+0000] {subprocess.py:93} INFO - Exception ignored in: <function KafkaProducer.__del__ at 0x7b029eed84c0>
+[2025-07-25T01:59:13.927+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2025-07-25T01:59:13.927+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.10/site-packages/kafka/producer/kafka.py", line 598, in __del__
+[2025-07-25T01:59:13.927+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.10/site-packages/kafka/producer/kafka.py", line 630, in close
+[2025-07-25T01:59:13.927+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.10/site-packages/kafka/producer/kafka.py", line 919, in flush
+[2025-07-25T01:59:13.927+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.10/site-packages/kafka/producer/record_accumulator.py", line 586, in await_flush_completion
+[2025-07-25T01:59:13.927+0000] {subprocess.py:93} INFO - kafka.errors.KafkaTimeoutError: KafkaTimeoutError: Timeout waiting for future
+[2025-07-25T01:59:13.945+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2025-07-25T01:59:14.008+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=bis_pipeline_dag, task_id=collect_bronze, execution_date=20250725T015910, start_date=20250725T015912, end_date=20250725T015914
+[2025-07-25T01:59:14.078+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2025-07-25T01:59:14.097+0000] {taskinstance.py:3280} INFO - 1 downstream tasks scheduled from follow-on schedule check

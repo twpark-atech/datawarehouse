@@ -1,0 +1,72 @@
+[2025-07-25T01:56:42.470+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: bis_pipeline_dag.kafka_to_bronze manual__2025-07-25T01:56:39.529884+00:00 [queued]>
+[2025-07-25T01:56:42.475+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: bis_pipeline_dag.kafka_to_bronze manual__2025-07-25T01:56:39.529884+00:00 [queued]>
+[2025-07-25T01:56:42.475+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 1
+[2025-07-25T01:56:42.523+0000] {taskinstance.py:2191} INFO - Executing <Task(DockerOperator): kafka_to_bronze> on 2025-07-25 01:56:39.529884+00:00
+[2025-07-25T01:56:42.528+0000] {standard_task_runner.py:60} INFO - Started process 195 to run task
+[2025-07-25T01:56:42.531+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'bis_pipeline_dag', 'kafka_to_bronze', 'manual__2025-07-25T01:56:39.529884+00:00', '--job-id', '36', '--raw', '--subdir', 'DAGS_FOLDER/bis_pipeline_dag.py', '--cfg-path', '/tmp/tmpvkqexfvs']
+[2025-07-25T01:56:42.532+0000] {standard_task_runner.py:88} INFO - Job 36: Subtask kafka_to_bronze
+[2025-07-25T01:56:42.612+0000] {task_command.py:423} INFO - Running <TaskInstance: bis_pipeline_dag.kafka_to_bronze manual__2025-07-25T01:56:39.529884+00:00 [running]> on host f2fb5fb74adc
+[2025-07-25T01:56:42.766+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='bis_pipeline_dag' AIRFLOW_CTX_TASK_ID='kafka_to_bronze' AIRFLOW_CTX_EXECUTION_DATE='2025-07-25T01:56:39.529884+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-07-25T01:56:39.529884+00:00'
+[2025-07-25T01:56:42.811+0000] {docker.py:359} INFO - Starting docker container from image my-spark:3.3-kafka
+[2025-07-25T01:56:47.246+0000] {docker.py:429} INFO - [38;5;6mspark [38;5;5m01:56:46.93 [0m[38;5;2mINFO [0m ==>
+[2025-07-25T01:56:47.247+0000] {docker.py:429} INFO - [38;5;6mspark [38;5;5m01:56:46.93 [0m[38;5;2mINFO [0m ==> [1mWelcome to the Bitnami spark container[0m
+[2025-07-25T01:56:47.247+0000] {docker.py:429} INFO - [38;5;6mspark [38;5;5m01:56:46.93 [0m[38;5;2mINFO [0m ==> Subscribe to project updates by watching [1mhttps://github.com/bitnami/containers[0m
+[2025-07-25T01:56:47.247+0000] {docker.py:429} INFO - [38;5;6mspark [38;5;5m01:56:46.93 [0m[38;5;2mINFO [0m ==> Submit issues and feature requests at [1mhttps://github.com/bitnami/containers/issues[0m
+[2025-07-25T01:56:47.247+0000] {docker.py:429} INFO - [38;5;6mspark [38;5;5m01:56:46.93 [0m[38;5;2mINFO [0m ==>
+[2025-07-25T01:56:47.247+0000] {docker.py:429} INFO - 
+[2025-07-25T01:56:48.311+0000] {docker.py:429} INFO - 25/07/25 01:56:48 INFO SparkContext: Running Spark version 3.3.4
+[2025-07-25T01:56:48.331+0000] {docker.py:429} INFO - 25/07/25 01:56:48 INFO ResourceUtils: ==============================================================
+[2025-07-25T01:56:48.332+0000] {docker.py:429} INFO - 25/07/25 01:56:48 INFO ResourceUtils: No custom resources configured for spark.driver.
+[2025-07-25T01:56:48.332+0000] {docker.py:429} INFO - 25/07/25 01:56:48 INFO ResourceUtils: ==============================================================
+[2025-07-25T01:56:48.332+0000] {docker.py:429} INFO - 25/07/25 01:56:48 INFO SparkContext: Submitted application: IngestBronze
+[2025-07-25T01:56:48.346+0000] {docker.py:429} INFO - 25/07/25 01:56:48 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(cores -> name: cores, amount: 1, script: , vendor: , memory -> name: memory, amount: 1024, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+[2025-07-25T01:56:48.352+0000] {docker.py:429} INFO - 25/07/25 01:56:48 INFO ResourceProfile: Limiting resource is cpu
+[2025-07-25T01:56:48.352+0000] {docker.py:429} INFO - 25/07/25 01:56:48 INFO ResourceProfileManager: Added ResourceProfile id: 0
+[2025-07-25T01:56:48.379+0000] {docker.py:429} INFO - 25/07/25 01:56:48 INFO SecurityManager: Changing view acls to: spark
+[2025-07-25T01:56:48.379+0000] {docker.py:429} INFO - 25/07/25 01:56:48 INFO SecurityManager: Changing modify acls to: spark
+[2025-07-25T01:56:48.379+0000] {docker.py:429} INFO - 25/07/25 01:56:48 INFO SecurityManager: Changing view acls groups to:
+[2025-07-25T01:56:48.380+0000] {docker.py:429} INFO - 25/07/25 01:56:48 INFO SecurityManager: Changing modify acls groups to:
+[2025-07-25T01:56:48.380+0000] {docker.py:429} INFO - 25/07/25 01:56:48 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(spark); groups with view permissions: Set(); users  with modify permissions: Set(spark); groups with modify permissions: Set()
+[2025-07-25T01:56:48.414+0000] {docker.py:429} INFO - 25/07/25 01:56:48 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2025-07-25T01:56:48.577+0000] {docker.py:429} INFO - 25/07/25 01:56:48 INFO Utils: Successfully started service 'sparkDriver' on port 45667.
+[2025-07-25T01:56:48.597+0000] {docker.py:429} INFO - 25/07/25 01:56:48 INFO SparkEnv: Registering MapOutputTracker
+[2025-07-25T01:56:48.628+0000] {docker.py:429} INFO - 25/07/25 01:56:48 INFO SparkEnv: Registering BlockManagerMaster
+[2025-07-25T01:56:48.640+0000] {docker.py:429} INFO - 25/07/25 01:56:48 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+[2025-07-25T01:56:48.641+0000] {docker.py:429} INFO - 25/07/25 01:56:48 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+[2025-07-25T01:56:48.645+0000] {docker.py:429} INFO - 25/07/25 01:56:48 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+[2025-07-25T01:56:48.663+0000] {docker.py:429} INFO - 25/07/25 01:56:48 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-9f9823fa-37fe-41d5-86bd-8078c6bb65c6
+[2025-07-25T01:56:48.676+0000] {docker.py:429} INFO - 25/07/25 01:56:48 INFO MemoryStore: MemoryStore started with capacity 434.4 MiB
+[2025-07-25T01:56:48.688+0000] {docker.py:429} INFO - 25/07/25 01:56:48 INFO SparkEnv: Registering OutputCommitCoordinator
+[2025-07-25T01:56:48.809+0000] {docker.py:429} INFO - 25/07/25 01:56:48 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+[2025-07-25T01:56:48.869+0000] {docker.py:429} INFO - 25/07/25 01:56:48 INFO Executor: Starting executor ID driver on host 5cf74b2886f7
+[2025-07-25T01:56:48.880+0000] {docker.py:429} INFO - 25/07/25 01:56:48 INFO Executor: Starting executor with user classpath (userClassPathFirst = false): ''
+[2025-07-25T01:56:48.891+0000] {docker.py:429} INFO - 25/07/25 01:56:48 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 36303.
+[2025-07-25T01:56:48.891+0000] {docker.py:429} INFO - 25/07/25 01:56:48 INFO NettyBlockTransferService: Server created on 5cf74b2886f7:36303
+[2025-07-25T01:56:48.892+0000] {docker.py:429} INFO - 25/07/25 01:56:48 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+[2025-07-25T01:56:48.896+0000] {docker.py:429} INFO - 25/07/25 01:56:48 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, 5cf74b2886f7, 36303, None)
+[2025-07-25T01:56:48.898+0000] {docker.py:429} INFO - 25/07/25 01:56:48 INFO BlockManagerMasterEndpoint: Registering block manager 5cf74b2886f7:36303 with 434.4 MiB RAM, BlockManagerId(driver, 5cf74b2886f7, 36303, None)
+[2025-07-25T01:56:48.899+0000] {docker.py:429} INFO - 25/07/25 01:56:48 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, 5cf74b2886f7, 36303, None)
+[2025-07-25T01:56:48.900+0000] {docker.py:429} INFO - 25/07/25 01:56:48 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, 5cf74b2886f7, 36303, None)
+[2025-07-25T01:56:49.510+0000] {docker.py:429} INFO - Traceback (most recent call last):
+  File "/app/bronze.py", line 47, in <module>
+[2025-07-25T01:56:49.510+0000] {docker.py:429} INFO - .load()
+  File "/opt/bitnami/spark/python/lib/pyspark.zip/pyspark/sql/streaming.py", line 469, in load
+[2025-07-25T01:56:49.510+0000] {docker.py:429} INFO - File "/opt/bitnami/spark/python/lib/py4j-0.10.9.5-src.zip/py4j/java_gateway.py", line 1321, in __call__
+  File "/opt/bitnami/spark/python/lib/pyspark.zip/pyspark/sql/utils.py", line 196, in deco
+pyspark.sql.utils.AnalysisException
+[2025-07-25T01:56:49.514+0000] {docker.py:429} INFO - :  Failed to find data source: kafka. Please deploy the application as per the deployment section of "Structured Streaming + Kafka Integration Guide".
+[2025-07-25T01:56:51.942+0000] {taskinstance.py:2698} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/providers/docker/operators/docker.py", line 502, in execute
+    return self._run_image()
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/providers/docker/operators/docker.py", line 364, in _run_image
+    return self._run_image_with_mounts([*self.mounts, tmp_mount], add_tmp_variable=True)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/providers/docker/operators/docker.py", line 437, in _run_image_with_mounts
+    raise DockerContainerFailedException(f"Docker container failed: {result!r}", logs=log_lines)
+airflow.providers.docker.exceptions.DockerContainerFailedException: Docker container failed: {'StatusCode': 1}
+[2025-07-25T01:56:51.944+0000] {taskinstance.py:1138} INFO - Marking task as FAILED. dag_id=bis_pipeline_dag, task_id=kafka_to_bronze, execution_date=20250725T015639, start_date=20250725T015642, end_date=20250725T015651
+[2025-07-25T01:56:52.000+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 36 for task kafka_to_bronze (Docker container failed: {'StatusCode': 1}; 195)
+[2025-07-25T01:56:52.020+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2025-07-25T01:56:52.038+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check
